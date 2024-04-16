@@ -42,7 +42,7 @@ public class StatsUploadJobService extends JobService {
 
     public static final String KEY_UNIQUE_ID = "uniqueId";
     public static final String KEY_DEVICE_NAME = "deviceName";
-    public static final String KEY_CR_VERSION = "crVersion";
+    public static final String KEY_BLKI_VERSION = "crVersion";
     public static final String KEY_BUILD_DATE = "buildDate";
     public static final String KEY_ANDROID_VERSION = "androidVersion";
     public static final String KEY_TAG = "tag";
@@ -103,7 +103,7 @@ public class StatsUploadJobService extends JobService {
 
                 String deviceId = extras.getString(KEY_UNIQUE_ID);
                 String deviceName = extras.getString(KEY_DEVICE_NAME);
-                String deviceCrVersion = extras.getString(KEY_CR_VERSION);
+                String deviceCrVersion = extras.getString(KEY_BLKI_VERSION);
                 String deviceBuildDate = extras.getString(KEY_BUILD_DATE);
                 String deviceAndroidVersion = extras.getString(KEY_ANDROID_VERSION);
                 String deviceTag = extras.getString(KEY_TAG);
