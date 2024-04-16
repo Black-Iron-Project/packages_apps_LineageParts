@@ -76,7 +76,7 @@ public class Utilities {
     }
 
     public static String getAndroidVersion() {
-        return SystemProperties.get("ro.crdroid.version", Build.VERSION.RELEASE);
+        return SystemProperties.get("ro.blackiron.version", Build.VERSION.RELEASE);
     }
 
     public static String getTag() {
