@@ -47,7 +47,7 @@ public class ReportingService extends IntentService {
         PersistableBundle blackironBundle = new PersistableBundle();
         blackironBundle.putString(StatsUploadJobService.KEY_DEVICE_NAME, deviceName);
         blackironBundle.putString(StatsUploadJobService.KEY_UNIQUE_ID, deviceId);
-        blackironBundle.putString(StatsUploadJobService.KEY_CR_VERSION, deviceCrVersion);
+        blackironBundle.putString(StatsUploadJobService.KEY_BLKI_VERSION, deviceCrVersion);
         blackironBundle.putString(StatsUploadJobService.KEY_BUILD_DATE, deviceBuildDate);
         blackironBundle.putString(StatsUploadJobService.KEY_ANDROID_VERSION, deviceAndroidVersion);
         blackironBundle.putString(StatsUploadJobService.KEY_TAG, deviceTag);
