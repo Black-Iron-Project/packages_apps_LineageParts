@@ -34,11 +34,11 @@ import java.util.concurrent.Executors;
 
 public class StatsUploadJobService extends JobService {
 
-    private static final String TAG = "crDroidStats";
+    private static final String TAG = "BlackironStats";
     private static final boolean DEBUG = true;
 
     public static final String KEY_JOB_TYPE = "job_type";
-    public static final int JOB_TYPE_CRDROID = 1;
+    public static final int JOB_TYPE_BLACKIRON = 1;
 
     public static final String KEY_UNIQUE_ID = "uniqueId";
     public static final String KEY_DEVICE_NAME = "deviceName";
@@ -115,13 +115,13 @@ public class StatsUploadJobService extends JobService {
                 int jobType = extras.getInt(KEY_JOB_TYPE, -1);
                 if (!mCancelled) {
                     switch (jobType) {
-                        case JOB_TYPE_CRDROID:
+                        case JOB_TYPE_BLACKIRON:
                             try {
                                 JSONObject json = buildStatsRequest(deviceId, deviceName,
                                         deviceCrVersion, deviceBuildDate, deviceAndroidVersion,
                                         deviceTag, deviceCountry, deviceCarrier,
                                         deviceCarrierId);
-                                success = uploadToCrdroid(json);
+                                success = uploadToBlackiron(json);
                             } catch (IOException | JSONException e) {
                                 Log.e(TAG, "Could not upload stats checkin to community server", e);
                             }
@@ -164,8 +164,8 @@ public class StatsUploadJobService extends JobService {
         return request;
     }
 
-    private boolean uploadToCrdroid(JSONObject json) throws IOException {
-        final Uri uri = Uri.parse(getString(R.string.stats_crdroid_url));
+    private boolean uploadToBlackiron(JSONObject json) throws IOException {
+        final Uri uri = Uri.parse(getString(R.string.stats_blackiron_url));
         URL url = new URL(uri.toString());
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         try {
@@ -180,7 +180,7 @@ public class StatsUploadJobService extends JobService {
             os.close();
 
             final int responseCode = urlConnection.getResponseCode();
-            if (DEBUG) Log.d(TAG, "crdroid server response code=" + responseCode);
+            if (DEBUG) Log.d(TAG, "blackiron server response code=" + responseCode);
             final boolean success = responseCode == HttpURLConnection.HTTP_OK;
             if (!success) {
                 Log.w(TAG, "failed sending, server returned: " + getResponse(urlConnection));

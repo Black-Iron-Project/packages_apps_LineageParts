@@ -23,7 +23,7 @@ import org.lineageos.lineageparts.SettingsPreferenceFragment;
 
 public class AnonymousStats extends SettingsPreferenceFragment {
 
-    private static final String PREF_FILE_NAME = "crDroidStats";
+    private static final String PREF_FILE_NAME = "BlackironStats";
     static final String ANONYMOUS_OPT_IN = "pref_anonymous_opt_in";
     static final String ANONYMOUS_LAST_CHECKED = "pref_anonymous_checked_in";
 
